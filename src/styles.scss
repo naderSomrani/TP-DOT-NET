@@ -1,0 +1,92 @@
+// Import Fuse core library
+@import "@fuse/scss/core";
+
+// -----------------------------------------------------------------------------------------------------
+// @ Multiple material themes example
+// -----------------------------------------------------------------------------------------------------
+$mat-primary: (
+    50: #FFEEEB,
+    100: #FFD4CE,
+    200: #FFB8AD,
+    300: #FF9C8C,
+    400: #FF8674,
+    500: #FF715B,
+    600: #FF6953,
+    700: #FF5E49,
+    800: #FF5440,
+    900: #FF422F,
+    A100: #FFFFFF,
+    A200: #FFFFFF,
+    A400: #FFDDDA,
+    A700: #FFC6C1,
+    contrast: (
+        50: $black-87-opacity,
+        100: $black-87-opacity,
+        200: $black-87-opacity,
+        300: white,
+        400: white,
+        500: $white-87-opacity,
+        600: $white-87-opacity,
+        700: $white-87-opacity,
+        800: $white-87-opacity,
+        900: $white-87-opacity,
+        A100: $black-87-opacity,
+        A200: $white-87-opacity,
+        A400: $white-87-opacity,
+        A700: $white-87-opacity,    
+    )
+);
+
+$mat-accent: (
+    50: #E7F1F4,
+    100: #C4DDE4,
+    200: #9DC7D2,
+    300: #76B0C0,
+    400: #589FB3,
+    500: #3B8EA5,
+    600: #35869D,
+    700: #2D7B93,
+    800: #26718A,
+    900: #195F79,
+    A100: #B2E9FF,
+    A200: #7FDAFF,
+    A400: #4CCBFF,
+    A700: #32C4FF,
+    contrast: (
+        50: $black-87-opacity,
+        100: $black-87-opacity,
+        200: $black-87-opacity,
+        300: $black-87-opacity,
+        400: $black-87-opacity,
+        500: $white-87-opacity,
+        600: $white-87-opacity,
+        700: $white-87-opacity,
+        800: $white-87-opacity,
+        900: $white-87-opacity,
+        A100: $black-87-opacity,
+        A200: $black-87-opacity,
+        A400: $black-87-opacity,
+        A700: $black-87-opacity,    
+    )
+);
+// Define the Material palettes
+$yellow-theme-primary: mat-palette($mat-primary);
+$yellow-theme-accent: mat-palette($mat-accent);
+$yellow-theme-warn: mat-palette($mat-red);
+
+// Create the Material theme object
+$yellow-theme: mat-light-theme($yellow-theme-primary, $yellow-theme-accent, $yellow-theme-warn);
+
+// Add ".yellow-theme" class to the body to activate this theme
+.yellow-theme {
+
+    // Generate the Angular Material theme
+    @include angular-material-theme($yellow-theme);
+
+    // Generate the fuse color classes with the new colors...
+    @include generateFuseColorClasses($yellow-theme-primary, $yellow-theme-accent, $yellow-theme-warn);
+}
+
+table {
+    width: 100%;
+}
