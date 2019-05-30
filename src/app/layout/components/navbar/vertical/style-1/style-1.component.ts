@@ -19,7 +19,8 @@ export class NavbarVerticalStyle1Component implements OnInit, OnDestroy
     fuseConfig: any;
     fusePerfectScrollbarUpdateTimeout: any;
     navigation: any;
-
+    username = localStorage.getItem('nom') + ' ' + localStorage.getItem('prenom');
+    email = localStorage.getItem('email');
     // Private
     private _fusePerfectScrollbar: FusePerfectScrollbarDirective;
     private _unsubscribeAll: Subject<any>;

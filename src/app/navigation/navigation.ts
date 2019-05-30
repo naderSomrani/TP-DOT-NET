@@ -14,6 +14,14 @@ export const navigation: FuseNavigation[] = [
                 type     : 'item',
                 icon     : 'home',
                 url      : '/home'
+            },
+            {
+                id       : 'historique',
+                title    : 'Historique',
+                translate: 'NAV.HISTORIQUE.TITLE',
+                type     : 'item',
+                icon     : 'history',
+                url      : '/historique'
             }
         ]
     }

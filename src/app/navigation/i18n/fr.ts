@@ -5,6 +5,9 @@ export const locale = {
             'APPLICATIONS': 'Gestion des caisses',
             'HOME'        : {
                 'TITLE': 'Accueil',
+            },
+            'HISTORIQUE'        : {
+                'TITLE': 'Historique',
             }
         }
     }

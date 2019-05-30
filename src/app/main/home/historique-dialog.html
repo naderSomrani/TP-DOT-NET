@@ -1,7 +1,7 @@
 <div fxLayout="row">
-  <span class="mat-subheading-2">Caisse: 1</span>
+  <span class="mat-subheading-2">Caisse: 1{{data.id}}</span>
 </div>
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z2">
+<table *ngIf="dataLoaded" mat-table [dataSource]="dataSource" class="mat-elevation-z2">
 
     <!--- Note that these columns can be defined in any order.
           The actual rendered columns are set as a property on the row definition" -->

@@ -8,6 +8,7 @@ import { FuseConfigService } from '@fuse/services/config.service';
 import { FuseSidebarService } from '@fuse/components/sidebar/sidebar.service';
 
 import { navigation } from 'app/navigation/navigation';
+import { Router } from '@angular/router';
 
 @Component({
     selector   : 'toolbar',
@@ -26,7 +27,7 @@ export class ToolbarComponent implements OnInit, OnDestroy
     userStatusOptions: any[];
     date = new Date();
     today = this.date.getFullYear() + '-' + this.date.getMonth() + '-' + this.date.getDate();
-
+    username = localStorage.getItem('nom') + ' ' + localStorage.getItem('prenom');
     // Private
     private _unsubscribeAll: Subject<any>;
 
@@ -40,7 +41,8 @@ export class ToolbarComponent implements OnInit, OnDestroy
     constructor(
         private _fuseConfigService: FuseConfigService,
         private _fuseSidebarService: FuseSidebarService,
-        private _translateService: TranslateService
+        private _translateService: TranslateService,
+        private router: Router
     )
     {
         // Set the defaults
@@ -121,6 +123,11 @@ export class ToolbarComponent implements OnInit, OnDestroy
         // Unsubscribe from all subscriptions
         this._unsubscribeAll.next();
         this._unsubscribeAll.complete();
+    }
+
+    logout(): void {
+        localStorage.removeItem('adresse');
+        this.router.navigate(['auth/login']);
     }
 
     // -----------------------------------------------------------------------------------------------------

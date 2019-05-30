@@ -4,11 +4,13 @@ import { TranslateModule } from '@ngx-translate/core';
 
 import { FuseSharedModule } from '@fuse/shared.module';
 
-import { HomeComponent, HistoriqueComponent } from './home.component';
+import { HomeComponent, HistoriqueDialogComponent } from './home.component';
 import {MatButtonModule} from '@angular/material/button';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatTableModule} from '@angular/material/table';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from 'auth/auth.interceptor';
 
 const routes = [
     {
@@ -20,7 +22,7 @@ const routes = [
 @NgModule({
     declarations: [
         HomeComponent,
-        HistoriqueComponent
+        HistoriqueDialogComponent
     ],
     imports     : [
         RouterModule.forChild(routes),
@@ -36,8 +38,15 @@ const routes = [
     exports     : [
         HomeComponent
     ],
+    providers: [
+        {
+          provide: HTTP_INTERCEPTORS,
+          useClass: AuthInterceptor,
+          multi: true
+        },
+      ],
     entryComponents: [
-      HistoriqueComponent
+        HistoriqueDialogComponent
     ]
 })
 

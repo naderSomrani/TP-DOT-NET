@@ -5,6 +5,9 @@ export const locale = {
             'APPLICATIONS': 'Cash register management',
             'HOME'        : {
                 'TITLE': 'Home',
+            },
+            'HISTORIQUE'        : {
+                'TITLE': 'History',
             }
         }
     }

@@ -9,14 +9,20 @@ export class User {
 }
 
 export interface Token {
-  key: string;
+  token: string;
+  user: [{
+    nom: string;
+    prenom: string;
+    email: string;
+    adresse: string;
+  }];
 }
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  rootUrl = 'http://localhost:64408/';
+  rootUrl = 'http://1e7f4bc4.ngrok.io/';
   loginURL = 'api/login';
 
   constructor(private http: HttpClient) { }

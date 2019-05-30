@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule, Routes } from '@angular/router';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
@@ -18,6 +18,8 @@ import { AppComponent } from 'app/app.component';
 import { LayoutModule } from 'app/layout/layout.module';
 import { HomeModule } from './main/home/home.module';
 import { LoginModule } from './main/login/login.module';
+import { HistoriqueModule } from './main/historique/historique.module';
+import { AuthInterceptor } from 'auth/auth.interceptor';
 
 const appRoutes: Routes = [
     {
@@ -55,7 +57,8 @@ const appRoutes: Routes = [
         // App modules
         LayoutModule,
         HomeModule,
-        LoginModule
+        LoginModule,
+        HistoriqueModule
     ],
     bootstrap   : [
         AppComponent

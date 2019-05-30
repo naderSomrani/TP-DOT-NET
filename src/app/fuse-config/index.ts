@@ -13,7 +13,7 @@ export const fuseConfig: FuseConfig = {
         style    : 'vertical-layout-1',
         width    : 'fullwidth',
         navbar   : {
-            background: 'mat-fuse-dark-700-bg',
+            background: 'mat-primary-bg',
             folded    : false,
             hidden    : false,
             position  : 'left',
